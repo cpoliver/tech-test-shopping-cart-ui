@@ -14,12 +14,11 @@ const receiptReducer = (state = INIT_STATE, action) => {
     },
     [REQUEST_RECEIPT]: {
       ...state,
-      items: action.items,
       isFetching: true
     },
     [UPDATE_ITEMS]: {
       ...state,
-      items: action.items
+      items: Object.assign({}, state.items, action.item)
     }
   };
 

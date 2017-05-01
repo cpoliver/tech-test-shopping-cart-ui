@@ -1,15 +1,34 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import './item-quantity.css';
 
 import { VALID_ITEMS } from '../../constants';
 
-class ItemQuantity extends React.Component {
+class ItemQuantity extends Component {
+  static defaultProps = {
+    count: 0
+  };
+
+  static propTypes = {
+    item: PropTypes.oneOf(VALID_ITEMS).isRequired,
+    count: PropTypes.number.isRequired,
+    onQuantityChange: PropTypes.func.isRequired
+  };
+
   constructor(props) {
     super(props);
 
     this.state = { count: props.count };
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    const { count } = nextState;
+
+    if (count !== this.state.count) {
+      const { onQuantityChange, item } = this.props;
+      onQuantityChange(item, count);
+    }
   }
 
   decrementCount = () => {
@@ -48,14 +67,5 @@ class ItemQuantity extends React.Component {
     );
   }
 }
-
-ItemQuantity.defaultProps = {
-  count: 0
-};
-
-ItemQuantity.propTypes = {
-  item: PropTypes.oneOf(VALID_ITEMS).isRequired,
-  count: PropTypes.number.isRequired
-};
 
 export default ItemQuantity;

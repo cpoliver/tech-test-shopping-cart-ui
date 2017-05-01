@@ -6,3 +6,5 @@ export const GARLIC = 'garlic';
 export const PAPAYA = 'papaya';
 
 export const VALID_ITEMS = [ APPLE, ORANGE, GARLIC, PAPAYA ];
+
+export const DEFAULT_ITEMS = VALID_ITEMS.map((item) => ({ item, count: 0 }));
