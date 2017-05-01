@@ -1,0 +1,13 @@
+@import url('../../../public/fonts/fonts.css');
+
+body {
+  margin: 0;
+}
+
+.c-app-input {
+  background: #333;
+  display: flex;
+  margin: 0 auto;
+  padding: 20px 0;
+  justify-content: center;
+}

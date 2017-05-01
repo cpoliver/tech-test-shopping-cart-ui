@@ -1,0 +1,50 @@
+.c-receipt {
+  color: #333;
+  font-family: 'Fake Receipt';
+  margin: 40px auto;
+  padding-right: 40px;
+  text-align: right;
+  width: 600px;
+}
+
+.c-receipt ul {
+  list-style-type: none;
+}
+
+.c-receipt-line-item-header {
+  font-weight: bold;
+}
+
+.c-receipt-line-item {
+  margin-bottom: 10px;
+}
+
+.c-receipt-line-item>span {
+  display: inline-block;
+}
+
+.c-receipt-line-item__id {
+  text-align: left;
+  width: 80px;
+}
+
+.c-receipt-line-item__count {
+  width: 100px;
+}
+
+.c-receipt-line-item__price {
+  width: 130px;
+}
+
+.c-receipt-line-item__discount {
+  width: 110px;
+}
+
+.c-receipt-line-item__subtotal {
+  width: 130px;
+}
+
+.c-receipt--total {
+  font-weight: bold;
+  text-align: right;
+}

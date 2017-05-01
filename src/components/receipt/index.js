@@ -1,26 +1,49 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './receipt.css';
+
 import { VALID_ITEMS } from '../../constants';
+
+const toPrice = (amount) => `£${amount.toFixed(2)}`;
+
+const renderHeader = () => (
+  <li className="c-receipt-line-item c-receipt-line-item-header">
+    <span className="c-receipt-line-item__id">ITEM</span>
+    <span className="c-receipt-line-item__count">QUANTITY</span>
+    <span className="c-receipt-line-item__price">UNIT COST</span>
+    <span className="c-receipt-line-item__discount">DISCOUNT</span>
+    <span className="c-receipt-line-item__subtotal">SUBTOTAL</span>
+  </li>
+);
 
 const renderLineItem = ({ id, count, price, discount, subtotal }) => (
   <li className="c-receipt-line-item" key={id}>
     <span className="c-receipt-line-item__id">{id}</span>
     <span className="c-receipt-line-item__count">{count}</span>
-    <span className="c-receipt-line-item__price">{price}</span>
-    <span className="c-receipt-line-item__discount">{discount}</span>
-    <span className="c-receipt-line-item__subtotal">{subtotal}</span>
+    <span className="c-receipt-line-item__price">{toPrice(price)}</span>
+    <span className="c-receipt-line-item__discount">{toPrice(discount)}</span>
+    <span className="c-receipt-line-item__subtotal">{toPrice(subtotal)}</span>
+  </li>
+);
+
+const renderDivider = () => (
+  <li className="c-receipt-line-item c-receipt-line-item-divider">
+    ---------------------------------------------------
   </li>
 );
 
 const renderTotal = (total) => (
-  <li className="c-receipt--total">TOTAL: {total}</li>
+  <li className="c-receipt--total">TOTAL: {toPrice(total)}</li>
 );
 
 const Receipt = ({ lineItems, total }) => (
   <div className="c-receipt">
     <ul>
+      {renderHeader()}
+      {renderDivider()}
       {lineItems.map(renderLineItem)}
+      {renderDivider()}
       {renderTotal(total)}
     </ul>
   </div>
