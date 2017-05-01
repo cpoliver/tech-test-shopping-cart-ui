@@ -1,0 +1,15 @@
+.c-recalculate-button {
+  background: #4776c1;
+  border: none;
+  border-radius: 20px;
+  color: #eee;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin: 10px auto;
+  padding: 10px;
+}
+
+.c-recalculate-button:hover {
+  color: #222;
+}

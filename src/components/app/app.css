@@ -2,6 +2,23 @@
 
 body {
   margin: 0;
+  background: #eee;
+}
+
+.c-app-header-bar {
+  display: flex;
+  margin: 0;
+}
+
+.c-app-header-bar:first-of-type {
+  background: #222;
+}
+
+.c-app-header-bar h1 {
+  font-family: 'Fake Receipt';
+  font-weight: normal;
+  color: #fff;
+  margin: 10px auto;
 }
 
 .c-app-input {
