@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './item-quantity.css';
 
-import { APPLE, ORANGE, GARLIC, PAPAYA } from '../../constants';
+import { VALID_ITEMS } from '../../constants';
 
 class ItemQuantity extends React.Component {
   constructor(props) {
@@ -50,12 +50,12 @@ class ItemQuantity extends React.Component {
 }
 
 ItemQuantity.defaultProps = {
-    count: 0
+  count: 0
 };
 
 ItemQuantity.propTypes = {
-    item: PropTypes.oneOf([ APPLE, ORANGE, GARLIC, PAPAYA ]).isRequired,
-    count: PropTypes.number.isRequired
+  item: PropTypes.oneOf(VALID_ITEMS).isRequired,
+  count: PropTypes.number.isRequired
 };
 
 export default ItemQuantity;

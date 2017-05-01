@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { APPLE, ORANGE, GARLIC, PAPAYA } from '../../constants';
+import { VALID_ITEMS } from '../../constants';
 
 const renderLineItem = ({ id, count, price, discount, subtotal }) => (
   <li className="c-receipt-line-item" key={id}>
@@ -58,7 +58,7 @@ Receipt.defaultProps = {
 Receipt.propTypes = {
   total: PropTypes.number.isRequired,
   lineItems: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.oneOf([ APPLE, ORANGE, GARLIC, PAPAYA ]).isRequired,
+    id: PropTypes.oneOf(VALID_ITEMS).isRequired,
     count: PropTypes.number.isRequired,
     price: PropTypes.number.isRequired,
     discount: PropTypes.number.isRequired,
