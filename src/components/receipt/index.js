@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './receipt.css';
 
-import { VALID_ITEMS } from '../../constants';
+import { lineItemsType } from '../../prop-types';
 
 const toPrice = (amount) => `£${amount.toFixed(2)}`;
 
@@ -37,56 +37,23 @@ const renderTotal = (total) => (
   <li className="receipt--total">TOTAL: {toPrice(total)}</li>
 );
 
-const Receipt = ({ lineItems, total }) => (
+const Receipt = ({ lineItems, total = 0 }) => (
   <div className="receipt">
     <ul>
-      {renderHeader()}
-      {renderDivider()}
-      {lineItems.map(renderLineItem)}
-      {renderDivider()}
-      {renderTotal(total)}
+      {lineItems && renderHeader()}
+      {lineItems && renderDivider()}
+      {lineItems && lineItems.map(renderLineItem)}
+      {lineItems && renderDivider()}
+      {lineItems && renderTotal(total)}
     </ul>
   </div>
 );
 
-Receipt.defaultProps = {
-  lineItems: [{
-    id: 'apple',
-    count: 1,
-    price: 0.25,
-    discount: 0,
-    subtotal: 0.25
-  }, {
-    id: 'orange',
-    count: 1,
-    price: 0.3,
-    discount: 0,
-    subtotal: 0.3
-  }, {
-    id: 'garlic',
-    count: 2,
-    price: 0.15,
-    discount: 0,
-    subtotal: 0.3
-  }, {
-    id: 'papaya',
-    count: 3,
-    price: 0.5,
-    discount: 0.5,
-    subtotal: 1
-  }],
-  total: 1.85
-};
+Receipt.defaultProps = {};
 
 Receipt.propTypes = {
-  total: PropTypes.number.isRequired,
-  lineItems: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.oneOf(VALID_ITEMS).isRequired,
-    count: PropTypes.number.isRequired,
-    price: PropTypes.number.isRequired,
-    discount: PropTypes.number.isRequired,
-    subtotal: PropTypes.number.isRequired
-  })).isRequired
+  total: PropTypes.number,
+  lineItems: lineItemsType
 };
 
 export default Receipt;
