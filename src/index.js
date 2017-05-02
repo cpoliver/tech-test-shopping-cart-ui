@@ -6,7 +6,7 @@ import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
 
 import App from './containers/app';
-import reducer from './reducers/receiptReducer';
+import reducer from './reducers/receipt-reducer';
 
 const store = createStore(
   reducer,
