@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import './item-quantity.css';
 
-import { VALID_ITEMS } from '../../constants';
+import { itemStringType } from '../../prop-types';
 
-class ItemQuantity extends React.Component {
+class ItemQuantity extends Component {
+  static defaultProps = {
+    count: 0
+  }
+
+  static propTypes = {
+    item: itemStringType.isRequired,
+    count: PropTypes.number.isRequired
+  }
+
   constructor(props) {
     super(props);
 
@@ -48,14 +57,5 @@ class ItemQuantity extends React.Component {
     );
   }
 }
-
-ItemQuantity.defaultProps = {
-  count: 0
-};
-
-ItemQuantity.propTypes = {
-  item: PropTypes.oneOf(VALID_ITEMS).isRequired,
-  count: PropTypes.number.isRequired
-};
 
 export default ItemQuantity;
