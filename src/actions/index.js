@@ -1,3 +1,5 @@
+import { flatten, map, pipe, repeat } from 'ramda';
+
 import { CART_ENDPOINT } from '../constants';
 
 export const RECEIVE_RECEIPT = 'RECEIVE_RECEIPT';
@@ -9,6 +11,17 @@ export const receiveReceipt = (receipt) => ({
   receipt
 });
 
+// e.g. { apple: 2, orange: 1 } -> [ 'apple', 'apple', 'orange' ]
+const flattenItems = (items) => {
+  const toStringArray = (item) => items[item] > 0 ? repeat(item, items[item]) : [];
+
+  return pipe(
+    Object.keys,
+    map(toStringArray),
+    flatten
+  )(items);
+}
+
 export const requestReceipt = (items) => (dispatch) => {
   dispatch({ type: REQUEST_RECEIPT });
 
@@ -17,7 +30,9 @@ export const requestReceipt = (items) => (dispatch) => {
     'Content-Type': 'application/json'
   };
 
-  return fetch(CART_ENDPOINT, { headers, method: 'POST', body: JSON.stringify(items) })
+  const body = JSON.stringify(flattenItems(items));
+
+  return fetch(CART_ENDPOINT, { headers, method: 'POST', body })
     .then(response => response.json())
     .then(receipt => dispatch(receiveReceipt(receipt)));
 };

@@ -1,7 +1,9 @@
 import { RECEIVE_RECEIPT, REQUEST_RECEIPT, UPDATE_ITEMS } from '../actions';
+import { DEFAULT_ITEMS } from '../constants';
 
 const INIT_STATE = {
   isFetching: false,
+  items: DEFAULT_ITEMS,
   receipt: {}
 };
 

@@ -4,17 +4,25 @@ import { connect } from 'react-redux';
 
 import './app.css';
 
-import { itemArrayType, receiptType } from '../../prop-types';
+import { requestReceipt } from '../../actions';
+import { itemsType, receiptType } from '../../prop-types';
 import ItemQuantity from '../../components/item-quantity';
 import RecalculateButton from '../../components/recalculate-button';
 import Receipt from '../../components/receipt';
 
 class App extends Component {
   static propTypes = {
-    items: itemArrayType,
+    items: itemsType,
     receipt: receiptType.isRequired,
     isFetching: PropTypes.bool.isRequired,
     dispatch: PropTypes.func.isRequired
+  }
+
+  handleRecalculate = (event) => {
+    event.preventDefault();
+
+    const { dispatch, items } = this.props;
+    dispatch(requestReceipt(items));
   }
 
   render() {
@@ -32,7 +40,7 @@ class App extends Component {
         </div>
 
         <div className="app-header-bar">
-          <RecalculateButton />
+          <RecalculateButton handleClick={this.handleRecalculate} />
         </div>
 
         <Receipt />

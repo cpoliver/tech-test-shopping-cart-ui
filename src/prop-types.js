@@ -7,7 +7,12 @@ export const itemType = PropTypes.shape({
   count: PropTypes.number.isRequired
 });
 
-export const itemArrayType = PropTypes.arrayOf(itemType);
+export const itemsType = PropTypes.shape({
+  apple: PropTypes.number.isRequired,
+  orange: PropTypes.number.isRequired,
+  garlic: PropTypes.number.isRequired,
+  papaya: PropTypes.number.isRequired
+});
 
 export const itemStringType = PropTypes.oneOf(VALID_ITEMS);
 
