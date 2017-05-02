@@ -1,17 +1,17 @@
-.c-item-quantity {
+.item-quantity {
   display: flex;
   margin: 0 20px;
   font-family: helvetica, arial, sans-serif;
 }
 
-.c-item-quantity__icon {
+.item-quantity__icon {
   background: #fff;
   border-radius: 64px;
   height: 64px;
   width: 64px;
 }
 
-.c-item-quantity__plusminus {
+.item-quantity__plusminus {
   display: flex;
   flex-direction: column;
   margin: 5px 0 0 3px;
@@ -19,7 +19,7 @@
   user-select: none;
 }
 
-.c-item-quantity__count {
+.item-quantity__count {
   color: #fff;
   font-size: 2rem;
   margin-top: -4px;
@@ -27,7 +27,7 @@
   width: 40px;
 }
 
-.c-item-quantity__plus, .c-item-quantity__minus {
+.item-quantity__plus, .item-quantity__minus {
   border-radius: 20px;
   color: #09919b;
   cursor: pointer;

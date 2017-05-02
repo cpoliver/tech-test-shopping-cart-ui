@@ -31,16 +31,16 @@ class ItemQuantity extends React.Component {
     const icon = require(`../../../public/icons/${item}.svg`);
 
     return (
-      <div className="c-item-quantity">
-        <div className="c-item-quantity__icon">
+      <div className="item-quantity">
+        <div className="item-quantity__icon">
           <img src={icon} alt={item} />
         </div>
-        <div className="c-item-quantity__plusminus">
-          <div className="c-item-quantity__plus" onClick={this.incrementCount}>
+        <div className="item-quantity__plusminus">
+          <div className="item-quantity__plus" onClick={this.incrementCount}>
             <span>&#x25B2;</span>
           </div>
-          <div className="c-item-quantity__count">{this.state.count}</div>
-          <div className="c-item-quantity__minus" onClick={this.decrementCount}>
+          <div className="item-quantity__count">{this.state.count}</div>
+          <div className="item-quantity__minus" onClick={this.decrementCount}>
             <span>&#x25BC;</span>
           </div>
         </div>

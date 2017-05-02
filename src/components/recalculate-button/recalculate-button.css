@@ -1,4 +1,4 @@
-.c-recalculate-button {
+.recalculate-button {
   background: #4776c1;
   border: none;
   border-radius: 20px;
@@ -10,6 +10,6 @@
   padding: 10px;
 }
 
-.c-recalculate-button:hover {
+.recalculate-button:hover {
   color: #222;
 }

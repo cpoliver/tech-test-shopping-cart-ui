@@ -1,4 +1,4 @@
-.c-receipt {
+.receipt {
   background: #fdfdfd;
   color: #333;
   font-family: 'Fake Receipt';
@@ -8,44 +8,44 @@
   width: 600px;
 }
 
-.c-receipt ul {
+.receipt ul {
   list-style-type: none;
 }
 
-.c-receipt-line-item-header {
+.receipt-line-item-header {
   font-weight: bold;
 }
 
-.c-receipt-line-item {
+.receipt-line-item {
   margin-bottom: 10px;
 }
 
-.c-receipt-line-item>span {
+.receipt-line-item>span {
   display: inline-block;
 }
 
-.c-receipt-line-item__id {
+.receipt-line-item__id {
   text-align: left;
   width: 80px;
 }
 
-.c-receipt-line-item__count {
+.receipt-line-item__count {
   width: 100px;
 }
 
-.c-receipt-line-item__price {
+.receipt-line-item__price {
   width: 130px;
 }
 
-.c-receipt-line-item__discount {
+.receipt-line-item__discount {
   width: 110px;
 }
 
-.c-receipt-line-item__subtotal {
+.receipt-line-item__subtotal {
   width: 130px;
 }
 
-.c-receipt--total {
+.receipt--total {
   font-weight: bold;
   text-align: right;
 }
