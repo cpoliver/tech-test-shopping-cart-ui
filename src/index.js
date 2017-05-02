@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
 
-import App from './components/app';
+import App from './containers/app';
 import reducer from './reducers/receiptReducer';
 
 const store = createStore(
